@@ -1,5 +1,7 @@
 package com.namget.daggerstudy
 
+import com.namget.daggerstudy.singleton.DaggerSingletonComponent
+import com.namget.daggerstudy.singleton.SingletonComponent
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -11,7 +13,22 @@ import org.junit.Assert.*
  */
 class ExampleUnitTest {
     @Test
-    fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
+    fun testHelloWorld() {
+        val myComponent: MyComponent = DaggerMyComponent.create()
+        println("result : = ${myComponent.getString()}")
     }
+
+    @Test
+    fun testInject() {
+//        val personComponent = DaggerPer
+    }
+
+    @Test
+    fun testSingleton() {
+        val singletonComponent: SingletonComponent = DaggerSingletonComponent.create()
+        val temp1 = singletonComponent.getString()
+        val temp2 = singletonComponent.getString()
+        assertSame(temp1, temp2)
+    }
+
 }
