@@ -1,12 +1,11 @@
 package com.namget.daggerstudy.binds
 
-import dagger.Binds
 import dagger.BindsInstance
 import dagger.Component
 
 @Component
 interface BindsComponent {
-    fun inject(myFoo: MyFoo)
+    fun inject(bindFoo: BindFoo)
 
     @Component.Builder
     interface Builder{
